@@ -44,6 +44,42 @@ html, body {
   color: #ffffff;
 }
 
+.email-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.email-btn {
+  color: #eae4d6;
+  display: inline-flex;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.email-btn:hover {
+  color: #ffffff;
+}
+
+.email-copied {
+  color: #eae4d6;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.15s, transform 0.15s;
+  pointer-events: none;
+}
+
+.email-copy.is-copied .email-copied {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .name {
   position: absolute;
   right: 3.2vw;

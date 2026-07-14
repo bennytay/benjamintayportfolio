@@ -1,0 +1,5 @@
+[2026-07-14T07:16:20.910Z] GET file:///Users/tayy/dev/benjamintay/index.html → 200 (7ms, 4309B)
+[2026-07-14T07:16:20.926Z] GET https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&display=swap → 200 (262ms, 875B)
+[2026-07-14T07:16:20.926Z] GET file:///Users/tayy/dev/benjamintay/styles.css → 200 (6ms, 1662B)
+[2026-07-14T07:16:21.272Z] GET file:///Users/tayy/dev/benjamintay/assets/website-background.png → 200 (7ms, 6199657B)
+[2026-07-14T07:16:21.272Z] GET https://fonts.gstatic.com/s/zillaslab/v12/dFa5ZfeM_74wlPZtksIFYoEf6HOpW3pwfa0.woff2 → 200 (136ms, 16788B)

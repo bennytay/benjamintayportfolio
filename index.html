@@ -27,14 +27,44 @@
     <a href="https://substack.com/@bennytay" target="_blank" rel="noopener" aria-label="Substack">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
     </a>
-    <a href="benjamintay707@gmail.com" aria-label="Email">
-      <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg>
-    </a>
+    <span class="email-copy">
+      <button type="button" class="email-btn" aria-label="Copy email address" data-email="benjamintay707@gmail.com">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg>
+      </button>
+      <span class="email-copied" role="status">Copied</span>
+    </span>
   </nav>
 
   <div class="name">
     <span>Benjamin Tay</span>
   </div>
 </div>
+<script>
+  const emailBtn = document.querySelector('.email-btn');
+  const emailCopy = document.querySelector('.email-copy');
+  let copiedTimeout;
+
+  emailBtn.addEventListener('click', async () => {
+    const email = emailBtn.dataset.email;
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch (err) {
+      const temp = document.createElement('textarea');
+      temp.value = email;
+      temp.style.position = 'fixed';
+      temp.style.opacity = '0';
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+    }
+
+    emailCopy.classList.add('is-copied');
+    clearTimeout(copiedTimeout);
+    copiedTimeout = setTimeout(() => {
+      emailCopy.classList.remove('is-copied');
+    }, 1800);
+  });
+</script>
 </body>
 </html>
