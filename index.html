@@ -38,6 +38,7 @@
 
   <div class="name">
     <span>Benjamin Tay</span>
+    <span class="age-timer" id="ageTimer"></span>
   </div>
 </div>
 <script>
@@ -66,6 +67,56 @@
       emailCopy.classList.remove('is-copied');
     }, 1800);
   });
+
+  const ageTimerEl = document.getElementById('ageTimer');
+  const birthday = new Date(2007, 6, 15, 0, 11, 0);
+
+  const hoursNode = document.createTextNode('');
+  const minutesNode = document.createTextNode('');
+  const secondsNode = document.createTextNode('');
+  const colon1 = document.createElement('span');
+  colon1.className = 'colon';
+  colon1.textContent = ':';
+  const colon2 = document.createElement('span');
+  colon2.className = 'colon';
+  colon2.textContent = ':';
+  ageTimerEl.append(hoursNode, colon1, minutesNode, colon2, secondsNode);
+
+  function updateAgeTimer() {
+    const sel = window.getSelection();
+    let restore = null;
+    if (sel && sel.rangeCount > 0 && !sel.isCollapsed) {
+      const range = sel.getRangeAt(0);
+      if (ageTimerEl.contains(range.commonAncestorContainer)) {
+        restore = {
+          anchorNode: sel.anchorNode,
+          anchorOffset: sel.anchorOffset,
+          focusNode: sel.focusNode,
+          focusOffset: sel.focusOffset,
+        };
+      }
+    }
+
+    const diff = Date.now() - birthday.getTime();
+    const totalSeconds = Math.floor(diff / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    hoursNode.data = hours.toLocaleString('en-US');
+    minutesNode.data = String(minutes).padStart(2, '0');
+    secondsNode.data = String(seconds).padStart(2, '0');
+
+    if (restore) {
+      const clamp = (node, offset) => Math.min(offset, node.data ? node.data.length : offset);
+      sel.setBaseAndExtent(
+        restore.anchorNode, clamp(restore.anchorNode, restore.anchorOffset),
+        restore.focusNode, clamp(restore.focusNode, restore.focusOffset)
+      );
+    }
+  }
+
+  updateAgeTimer();
+  setInterval(updateAgeTimer, 1000);
 </script>
 </body>
 </html>

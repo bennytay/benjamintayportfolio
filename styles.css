@@ -9,6 +9,10 @@ html, body {
   box-sizing: border-box;
 }
 
+::selection {
+  background: rgba(234, 228, 214, 0.35);
+}
+
 .stage {
   position: fixed;
   inset: 0;
@@ -97,4 +101,20 @@ html, body {
   letter-spacing: -0.01em;
   text-shadow: 0 2px 30px rgba(40, 60, 90, 0.25);
   font-size: clamp(40px, 10.5vw, 128px);
+}
+
+.name span.age-timer {
+  margin-top: clamp(16px, 3.5vw, 32px);
+  font-size: clamp(28px, 5.2vw, 56px);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  color: #eae4d6;
+}
+
+.name span.age-timer .colon {
+  display: inline;
+  margin: 0 0.06em;
+  font-weight: 400;
+  font-size: 0.7em;
+  vertical-align: 0.05em;
 }
