@@ -1,0 +1,15 @@
+# macOS Finder metadata
+.DS_Store
+
+# Local agent/browser artifacts
+.gstack/
+
+# Local development tooling
+node_modules/
+.wrangler/
+
+# Cloudflare local secrets
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

@@ -1,9 +1,0 @@
-{
-  "pid": 19326,
-  "port": 12233,
-  "token": "f5cd5209-32c3-4a5e-886b-c6fed7a86175",
-  "startedAt": "2026-07-14T12:49:56.400Z",
-  "serverPath": "/Users/tayy/.claude/skills/gstack/browse/src/server.ts",
-  "mode": "launched",
-  "configHash": "303a7eeccc03078b"
-}
