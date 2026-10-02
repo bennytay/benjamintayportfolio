@@ -6,9 +6,16 @@
   --selection: oklch(0.85 0.045 82);
 
   --font-body: "EB Garamond", Garamond, "Times New Roman", serif;
-  --measure: 680px;
+  --page-width: min(55vw, 680px);
+  --page-offset: 12.5vw;
+  --page-padding-block: 5rem 4rem;
+  --page-padding-inline: 0;
   --body-size: 1.4rem;
   --body-leading: 2rem;
+  --content-gap: 1.4rem;
+  --footer-spacing: 1.5rem;
+  --social-icon-size: 1.45rem;
+  --social-gap: 0.78rem;
 }
 
 * {
@@ -55,16 +62,12 @@ a:focus-visible {
 }
 
 .page {
-  width: min(55vw, var(--measure));
-  margin: 0 0 0 12.5vw;
-  padding: 5rem 0 4rem;
+  width: var(--page-width);
+  margin: 0 0 0 var(--page-offset);
+  padding: var(--page-padding-block) var(--page-padding-inline);
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-}
-
-.site-header {
-  display: block;
 }
 
 .site-title {
@@ -77,29 +80,22 @@ a:focus-visible {
 }
 
 .location {
-  margin: 0;
+  margin: 0 0 var(--content-gap);
   color: var(--muted-ink);
   font-size: 1rem;
   line-height: 1.3;
 }
 
-.header-utility {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1.4rem;
-}
-
 .social-nav {
   display: flex;
   align-items: center;
-  gap: 0.78rem;
+  gap: var(--social-gap);
 }
 
 .social-link {
   display: inline-flex;
-  width: 1.45rem;
-  height: 1.45rem;
+  width: var(--social-icon-size);
+  height: var(--social-icon-size);
   color: var(--muted-ink);
   text-decoration: none;
   transition: color 150ms ease-out;
@@ -138,11 +134,9 @@ p {
 }
 
 .introduction p {
-  max-width: 100%;
-  margin: 0 0 1.4rem;
+  margin: 0 0 var(--content-gap);
   font-size: var(--body-size);
   line-height: var(--body-leading);
-  letter-spacing: 0;
 }
 
 .introduction p:last-child {
@@ -150,7 +144,7 @@ p {
 }
 
 .introduction + .introduction {
-  margin-top: 1.4rem;
+  margin-top: var(--content-gap);
 }
 
 .reading-list h2 {
@@ -190,20 +184,20 @@ p {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --page-width: auto;
+    --page-offset: 0;
+    --page-padding-block: 4rem 3rem;
+    --page-padding-inline: 1.5rem;
+  }
+
   .page {
-    width: auto;
-    margin: 0;
-    padding: 4rem 1.5rem 3rem;
+    width: var(--page-width);
+    margin-left: var(--page-offset);
   }
 
   .site-title {
     font-size: 2.7rem;
-  }
-
-  .header-utility {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.65rem;
   }
 }
 
