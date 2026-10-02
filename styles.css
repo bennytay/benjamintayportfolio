@@ -124,9 +124,8 @@ a:focus-visible {
 }
 
 .site-footer {
-  margin-top: auto;
-  margin-bottom: 1.25rem;
-  padding-top: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
   border-top: 1px solid color-mix(in oklch, var(--ink) 14%, transparent);
 }
 
@@ -190,7 +189,7 @@ p {
   font-style: normal;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .page {
     width: auto;
     margin: 0;
