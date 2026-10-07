@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Selected technical projects by Benjamin Tay.">
+  <title>projects — bennytay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="site-header">
+      <h1 class="site-title"><a class="site-home" href="index.html">Benjamin Tay</a></h1>
+      <p class="location">UTC+10 -- Sydney, Australia</p>
+      <nav class="page-nav" aria-label="Primary navigation">
+        <a href="index.html">home</a>
+        <a href="projects.html" aria-current="page">projects</a>
+        <a href="articles.html">articles</a>
+      </nav>
+    </header>
+
+    <section class="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">projects:</h2>
+
+      <article class="project">
+        <h3 class="project-heading"><span>neptune</span><span class="project-links"><a class="project-link" href="https://github.com/bennytay/neptune" target="_blank" rel="noopener noreferrer" aria-label="Neptune on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></span></h3>
+        <ul>
+          <li>creating a persistent memory layer for robotic deployments, aggregating context data (records, history, regulations) with physical data (MCAP files + ROS + URDF + logs etc). like <a href="https://supermemory.ai" target="_blank" rel="noopener noreferrer">supermemory.ai</a> but for robots. with more deployment data, the memory is automatically updated + can be used as a data flywheel.</li>
+          <li>memory is aimed to be used for downstream applications (LLM agents, VLA policies, simulators, eval/training pipelines and deployment/compliance tooling).</li>
+          <li>memory system = bi-temporal claim graph + episodic/spatial memory with immutable evidence and revision/invalidation semantics.</li>
+        </ul>
+        <figure class="project-image">
+          <img src="assets/neptune-memory-architecture.png" alt="Neptune memory architecture connecting working, episodic, and persistent memory across short, medium, and long horizons.">
+        </figure>
+        <p class="project-status">* still in progress *</p>
+      </article>
+
+      <article class="project">
+        <h3 class="project-heading"><span>drone VLM system</span><span class="project-links"><a class="project-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7502970041890447360/" target="_blank" rel="noopener noreferrer" aria-label="Drone VLM system on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a></span></h3>
+        <ul>
+          <li>allows you to ask open-ended semantic questions while the drone is flying (“ChatGPT for drone video”), very applicable to industry + makes monitoring tools + surveillance process more accessible to non-technical operators.</li>
+          <li>Qwen3-VL-2B as pretrained base (4bit mode).</li>
+          <li>frozen vision tower initially.</li>
+          <li>image to language merger/projector + LoRA adapter is trained in Qwen’s attention and MLP layers.</li>
+          <li>completion-only supervised fine tuning on structured aerial tasks.</li>
+        </ul>
+        <p class="project-relationship"><a class="project-link" href="https://github.com/bennytay/aero_vlm" target="_blank" rel="noopener noreferrer" aria-label="Shared aero_vlm repository on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a> extension of the aerial tracking system below · <a href="https://github.com/bennytay/aero_vlm" target="_blank" rel="noopener noreferrer">shared aero_vlm repository</a></p>
+        <video class="project-video" controls preload="metadata" playsinline poster="assets/drone-vlm-system-poster.jpg" aria-label="Drone VLM system demonstration">
+          <source src="assets/drone-vlm-system.mp4" type="video/mp4">
+        </video>
+      </article>
+
+      <article class="project">
+        <h3 class="project-heading"><span>drone aerial object detection + tracking system</span><span class="project-links"><a class="project-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7500726740667924480/" target="_blank" rel="noopener noreferrer" aria-label="Drone tracking system on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a></span></h3>
+        <ul>
+          <li>drones are great for surveillance / detection deployments but it’s hard to run advanced models on them because of limited onboard compute and battery concerns. I sought to build the lowest cost and most efficient onboard system possible.</li>
+          <li>fine-tuning of YOLO26n on VisDrone for compute-constrained on-board detection.</li>
+          <li>targeted MaixCAM2/AX630C inference; switchable ByteTrack and BoT-SORT tracking (depending on drone movement, if it’s just hovering vs moving).</li>
+          <li>this was the basis for my drone VLM project, which extended it on the same codebase.</li>
+        </ul>
+        <p class="project-relationship"><a class="project-link" href="https://github.com/bennytay/aero_vlm" target="_blank" rel="noopener noreferrer" aria-label="Shared aero_vlm repository on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a> base system for the VLM extension above · <a href="https://github.com/bennytay/aero_vlm" target="_blank" rel="noopener noreferrer">shared aero_vlm repository</a></p>
+        <video class="project-video" controls preload="metadata" playsinline poster="assets/drone-aerial-tracking-poster.jpg" aria-label="Drone aerial object detection and tracking demonstration">
+          <source src="assets/drone-aerial-tracking.mp4" type="video/mp4">
+        </video>
+      </article>
+
+      <article class="project">
+        <h3 class="project-heading"><span>world action model data survey</span><span class="project-links"><a class="project-link project-link-web" href="https://engrxiv.org/preprint/view/8158/version/10498" target="_blank" rel="noopener noreferrer" aria-label="World action model survey paper"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M2.75 12h18.5M12 2.75c2.9 2.55 4.37 5.63 4.37 9.25S14.9 18.7 12 21.25C9.1 18.7 7.63 15.62 7.63 12S9.1 5.3 12 2.75Z"/></svg></a><a class="project-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7505475040201744384/" target="_blank" rel="noopener noreferrer" aria-label="World action model survey on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a></span></h3>
+        <ul>
+          <li>over 200 downloads in just over a month of publication.</li>
+          <li>world action models depend on training data that record agent-environment causality. therefore, we mapped the current landscape by data through the lens of causal completeness, distilling it into three key tiers.</li>
+          <li>this is followed by an analysis of the saturation of the data collection economy, and discusses the problem of 'scaling in the dark' -&gt; there is a lack of proper benchmarking / taxonomy that measures how well a dataset actually improves model performance.</li>
+        </ul>
+        <figure class="project-image">
+          <img src="assets/world-action-model-survey.png" alt="First page of the World-Action Model survey paper by Benjamin Tay and Jaymari Chua.">
+        </figure>
+      </article>
+
+      <article class="project">
+        <h3 class="project-heading"><span>imitation learning for SO-101 arm (ACT model)</span><span class="project-links"><a class="project-link" href="https://github.com/bennytay/imitation_machines_technical" target="_blank" rel="noopener noreferrer" aria-label="Imitation learning project on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></span></h3>
+        <ul>
+          <li>technical exercise i did to learn about ACT imitation learning techniques.</li>
+          <li>built a ROS 2 ↔ MuJoCo bridge, episode recorder, and LeRobot conversion path.</li>
+          <li>trained and ran an ACT policy from recorded SO-101 demonstrations.</li>
+          <li>full writeup + technical analysis available on GitHub README.</li>
+        </ul>
+        <figure class="project-image">
+          <img src="assets/so101-act-training.png" alt="ACT training loss and gradient-norm curves for the SO-101 trace-I task across 5,000 steps.">
+        </figure>
+      </article>
+
+      <article class="project">
+        <h3 class="project-heading"><span>aperture</span><span class="project-links"><a class="project-link" href="https://github.com/PenTest-duck/Aperture" target="_blank" rel="noopener noreferrer" aria-label="Aperture on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a class="project-link" href="https://www.linkedin.com/posts/chris-yoo_we-won-hack48-by-scaling-physical-data-ugcPost-7464624704323014656--o9l/" target="_blank" rel="noopener noreferrer" aria-label="Aperture on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a></span></h3>
+        <ul>
+          <li>“mercor / airtasker for physical data” -&gt; phone-first egocentric robotics data marketplace to scale robot model training, and people earn money off of recording themselves.</li>
+          <li>raw footage is fused with LiDAR &amp; IMU sensor measurements and subjected to pre-processing with hand pose estimation, instance segmentation, object detection, transcripts, self-narration to capture human reasoning, and 3D gaussian splats, natural language search through videos.</li>
+          <li>winner @ hack48 hackathon.</li>
+        </ul>
+        <figure class="project-image">
+          <img src="assets/aperture.png" alt="Aperture interface showing RGB video, hand landmarks, object detections, action segments, and evaluation traces.">
+        </figure>
+      </article>
+
+      <article class="project">
+        <h3 class="project-heading"><span>airtree pathfinders program -&gt; major project</span><span class="project-links"><a class="project-link" href="https://github.com/bennytay/pathfinders" target="_blank" rel="noopener noreferrer" aria-label="Airtree Pathfinders on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></span></h3>
+        <ul>
+          <li>we scan your whole photo library to understand context about you and your relationship with your friends - algorithm automatically recommends events to do together.</li>
+          <li>perception model + inference engine + on-device language model (all of this is completely on-device for privacy).</li>
+          <li>server-side = public event data + crash reports.</li>
+        </ul>
+        <video class="project-video project-video-portrait" controls preload="metadata" playsinline poster="assets/airtree-pathfinders-poster.jpg" aria-label="Airtree Pathfinders iOS demonstration">
+          <source src="assets/airtree-pathfinders.mp4" type="video/mp4">
+        </video>
+      </article>
+
+      <article class="project">
+        <h3 class="project-heading"><span>polymates</span><span class="project-links"><a class="project-link" href="https://github.com/YamacYurtsever/Polymates" target="_blank" rel="noopener noreferrer" aria-label="Polymates on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a class="project-link" href="https://www.linkedin.com/posts/benjamintay07_my-friends-have-voted-that-theres-a-00001-ugcPost-7464608392968409088-lAAg/" target="_blank" rel="noopener noreferrer" aria-label="Polymates on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a></span></h3>
+        <ul>
+          <li>first-of-its-kind ‘make a bet on anything’ social prediction market where you gamble with virtual tokens and have group leaderboards.</li>
+          <li>added an AI evidence arbiter for bet-resolution support.</li>
+          <li>winner @ UNSW DevSoc × Atlassian hackathon.</li>
+        </ul>
+        <figure class="project-image">
+          <img src="assets/polymates.png" alt="Polymates presentation slide projected at the UNSW DevSoc and Atlassian hackathon.">
+        </figure>
+      </article>
+
+      <article class="project">
+        <h3 class="project-heading"><span>build club hackathon</span><span class="project-links"><a class="project-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7452551533323325440/" target="_blank" rel="noopener noreferrer" aria-label="Build Club hackathon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a></span></h3>
+        <ul>
+          <li>returns risk reports on business targeted towards Tranche 2 requirements (extremely complicated + time-consuming task for SMEs).</li>
+          <li>distilled this entire process into an easy-to-use automated + AI-assisted app that only takes 2-3 hours to complete (vs weeks of work + cost of hiring a professional to do it for you).</li>
+          <li>winner @ build club x Folklore ventures x Lovable hackathon.</li>
+        </ul>
+        <figure class="project-image">
+          <img src="assets/build-club.png" alt="Build Club project dashboard showing client verification and risk-screening results.">
+        </figure>
+      </article>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('.project-relationship').forEach((relationship) => {
+      const project = relationship.closest('.project');
+      const links = project.querySelector('.project-heading .project-links');
+      const github = relationship.querySelector('.project-link');
+
+      if (links && github) {
+        links.append(github);
+      }
+
+      relationship.remove();
+    });
+
+    const status = document.querySelector('.project-status');
+    if (status) {
+      const title = status.closest('.project').querySelector('.project-heading > span:first-child');
+      title.textContent += ' (in progress)';
+      status.remove();
+    }
+
+    const winners = new Set(['aperture', 'polymates', 'build club hackathon']);
+    document.querySelectorAll('.project-heading > span:first-child').forEach((title) => {
+      if (winners.has(title.textContent.trim())) {
+        title.textContent = `🏆 ${title.textContent}`;
+      }
+    });
+
+    const addXEvidence = (projectName, url) => {
+      const title = [...document.querySelectorAll('.project-heading > span:first-child')]
+        .find((element) => element.textContent.trim() === projectName);
+      const links = title?.parentElement.querySelector('.project-links');
+
+      if (!links) return;
+
+      const link = document.createElement('a');
+      link.className = 'project-link';
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', `${projectName} on X`);
+      link.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>';
+      links.append(link);
+    };
+
+    addXEvidence('drone VLM system', 'https://x.com/bennytay07/status/2097221204251976143');
+    addXEvidence('drone aerial object detection + tracking system', 'https://x.com/bennytay07/status/2094953460168831120');
+    addXEvidence('world action model data survey', 'https://x.com/bennytay07/status/2099703795353837862');
+  </script>
+</body>
+</html>
